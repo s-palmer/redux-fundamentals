@@ -12,6 +12,12 @@ test('decrements from 2 to 1', () => {
 test('decrements from 1 to 0', () => {
   expect(counter(1, { type: "DECREMENT" })).toEqual(0);
 });
+test('unknown action type should return current state', () => {
+  expect(counter(1, { type: "SOMETHING_ELSE" })).toEqual(1);
+});
+test('should have an initial state of 0', () => {
+  expect(counter(undefined, {})).toEqual(0);
+});
 
 
 console.log("Tests passed!");
